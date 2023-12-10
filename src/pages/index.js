@@ -1,4 +1,6 @@
 import Head from "next/head";
+import Header from "../components/header/Header";
+import Footer from "@/components/footer/Footer";
 
 export default function Home() {
   return (
@@ -7,9 +9,10 @@ export default function Home() {
         <title>EcoTur - Frontend</title>
         <meta property="og:title" content="My page title" key="title" />
       </Head>
-
       <main>
-        <h1 className="fw-semibold text-success">Home</h1>
+        <Header />
+        <div className="bg-secondary" style={{ height: '900px' }}></div>
+        <Footer />
       </main>
     </>
   );

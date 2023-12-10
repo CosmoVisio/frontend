@@ -1,3 +1,5 @@
 @import "bootstrap/dist/css/bootstrap.css";
-
+@import "../components/botton/bottonPrimary.css";
+@import "../components//footer/footer.css";
+@import "../components/header/header.css";
 /* TODO: Colocar todos os imports de .css de components e das páginas aqui */
