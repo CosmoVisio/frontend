@@ -1,20 +1,19 @@
-
 .footer {
-    background-color: #F7F7F7; 
-    padding: 20px;
-  }
-  
-  .footer .nav-link {
-    position: relative;
-    color: #000000; 
-  }
-  
-  .footer-container .nav-link:not(:last-child)::after {
-    content: '·';
-    position: absolute;
-    top: 50%;
-    right: -5px;
-    transform: translateY(-50%);
-    font-size: 1.5rem;
-    color: #000000;
-  }
+  background-color: #f7f7f7;
+  padding: 20px;
+}
+
+.footer .nav-link {
+  position: relative;
+  color: #000000;
+}
+
+.footer-container .nav-link:not(:last-child)::after {
+  content: "·";
+  position: absolute;
+  top: 50%;
+  right: -5px;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  color: #000000;
+}

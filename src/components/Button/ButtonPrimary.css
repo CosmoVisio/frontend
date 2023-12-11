@@ -1,0 +1,24 @@
+.buttonStyle {
+  font-family: "Inter";
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #022f07;
+  border: 2px solid #022f07;
+  width: 80px;
+  height: 30px;
+  border-radius: 30px;
+  gap: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffff;
+}
+
+.buttonStyle:hover {
+  background: #022f07;
+  color: #ffff;
+  border: 2px solid #022f07;
+}
