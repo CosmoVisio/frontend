@@ -39,13 +39,7 @@ const Header = () => {
               >
                 <Nav.Link>Pacotes</Nav.Link>
               </Link>
-              <Link
-                className="text-decoration-none text-uppercase"
-                href="/contact"
-                passHref
-              >
-                <Nav.Link>Clientes</Nav.Link>
-              </Link>
+             
               <Link
                 className="text-decoration-none text-uppercase"
                 href="/contact"

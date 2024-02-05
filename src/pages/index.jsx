@@ -15,8 +15,7 @@ export default function Home() {
         <Header />
 
         <div
-          className="d-flex flex-column h-100"
-          style={{ background: "#A39F9F" }}
+          className="d-flex flex-column h-100 container"
         >
           <input
             placeholder="BARRA DE PESQUISA"
