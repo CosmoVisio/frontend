@@ -1,12 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Card from '../components/Card/Card';
 import { Header, Footer } from "@/components";
 import data from "../mockes/places"
+import Modal from '../components/modal/modal'; // Certifique-se de ajustar o caminho conforme necessário
 
 const App = () => {
+  const [selectedCard, setSelectedCard] = useState(null);
+
+  const openModal = (card) => {
+    console.log('select card');
+    setSelectedCard(card);
+  
+  };
+
+ 
+  
   return (
     <>
-
     <Header />
 
     <div className='container '>
@@ -21,12 +31,19 @@ const App = () => {
           difficulty={item.difficulty}
           price={item.price}
           link={item.link}
-          />
-          ))}
+          openModal={() => openModal(item)} 
+          tag={item.tag}
+          description={item.description}
+          whatsappNumber={item.whatsappNumber}
+          YWF={item.YWF}
+          location={item.location}
+        />
+      ))}
     </div>
 
     <Footer />
 
+  
   </>
   );
 };

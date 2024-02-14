@@ -27,7 +27,7 @@ const Header = () => {
               </Link>
               <Link
                 className="text-decoration-none text-uppercase"
-                href="/about"
+                href="/places"
                 passHref
               >
                 <Nav.Link>Destinos</Nav.Link>

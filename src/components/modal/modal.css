@@ -1,0 +1,83 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Ajuste conforme necessário para garantir que seja maior que outros elementos */
+    
+
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 1001; /* Certifique-se de que seja maior que o z-index da overlay */
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between; 
+}
+
+
+.image-container {
+    width: 100%; /* Metade da largura do modal */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; /* Duas colunas para as três imagens na direita */
+    grid-template-rows: auto; /* Três linhas, cada uma ocupada por uma imagem */
+    grid-gap: 10px; /* Adicione espaçamento entre as imagens no grid */
+  }
+  
+  .image {
+    width: 100%; /* As imagens ocupam toda a largura disponível nas colunas */
+    height: auto;
+  }
+  
+  .image:first-child {
+    grid-column: span 2; /* A primeira imagem ocupa duas colunas para formar uma linha inteira */
+    grid-row: span 3; /* A primeira imagem ocupa três linhas para formar uma coluna inteira */
+  }
+
+  .button-container {
+    display: flex;
+    gap: 10px; /* Espaço entre os botões */
+}
+
+.reserve-button,
+.contact-button {
+    padding: 10px 15px; /* Espaçamento interno do botão */
+    font-size: 16px; /* Tamanho da fonte */
+    background-color: #3498db; /* Cor de fundo */
+    color: #ffffff; /* Cor do texto */
+    border: none; /* Sem borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer;
+}
+
+.contact-button{
+    background-color: #34db8d; /* Cor de fundo */
+}
+
+.reserve-button:hover,
+.contact-button:hover {
+    background-color: #2980b9; /* Cor de fundo ao passar o mouse */
+}
+
+.button-local{
+
+    cursor: pointer;
+    color: #2980b9;
+}
