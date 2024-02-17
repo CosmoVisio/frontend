@@ -2,8 +2,15 @@ import { Navbar, Nav } from "react-bootstrap";
 import BottonPrimary from "../Button/ButtonPrimary";
 import Link from "next/link";
 import Logo from "../../assets/EcoPasseiosPElogo.png";
+import { useRouter } from "next/router";
 
 const Header = () => {
+  const router = useRouter();
+
+  const handleClick = (route) => {
+    router.push(route);
+  };
+
   return (
     <div className="header-container container bg-white d-flex pt-2">
       <Link href="/">
@@ -16,46 +23,49 @@ const Header = () => {
         <Navbar className="mr-4" expand="lg">
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto">
-              <Link
-                className="text-decoration-none text-uppercase"
-                href="/"
-                passHref
-              >
-                <Nav.Link>Inicio</Nav.Link>
-              </Link>
-              <Link
-                className="text-decoration-none text-uppercase"
-                href="/places"
-                passHref
-              >
-                <Nav.Link>Destinos</Nav.Link>
-              </Link>
-              <Link
-                className="text-decoration-none text-uppercase"
-                href="/services"
-                passHref
-              >
-                <Nav.Link>Pacotes</Nav.Link>
-              </Link>
-             
-              <Link
-                className="text-decoration-none text-uppercase"
-                href="/contact"
-                passHref
-              >
-                <Nav.Link>Contato</Nav.Link>
-              </Link>
-            </Nav>
-          </Navbar.Collapse>
+          <Nav className="mr-auto">
+            <Nav.Link className="text-decoration-none text-uppercase" href="/">
+              Inicio
+            </Nav.Link>
+
+            <Nav.Link
+              className="text-decoration-none text-uppercase"
+              href="/places"
+            >
+              Destinos
+            </Nav.Link>
+
+            <Nav.Link
+              className="text-decoration-none text-uppercase"
+              href="/services"
+            >
+              Pacotes
+            </Nav.Link>
+
+            <Nav.Link
+              className="text-decoration-none text-uppercase"
+              href="/contact"
+            >
+              Contato
+            </Nav.Link>
+          </Nav>
         </Navbar>
       </div>
 
       <div>
         <Nav className="ml-auto">
-          <BottonPrimary variant="outline-primary">Login</BottonPrimary>
-          <BottonPrimary variant="primary">Signup</BottonPrimary>
+          <BottonPrimary
+            variant="outline-primary"
+            onClick={() => handleClick("/login")}
+          >
+            Login
+          </BottonPrimary>
+          <BottonPrimary
+            variant="primary"
+            onClick={() => handleClick("/register")}
+          >
+            Signup
+          </BottonPrimary>
         </Nav>
       </div>
     </div>
