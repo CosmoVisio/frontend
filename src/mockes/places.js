@@ -18,7 +18,7 @@ const data = [
       link:'www.google.com',
       tag: 'cachoeiraparaiso' ,       
       description: 'Saida de sao lourenço loren loren loren  is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to ma',
-      whatsappNumber:  +5581998290346, 
+      whatsappNumber:  22, 
       YWF: [' Trilha | 1 Cachoeira | 1 Mirante'],
       location: '-23.550520,-46.633308'
       
