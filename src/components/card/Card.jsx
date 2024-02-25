@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import Modal from '../modal/modal'; // Certifique-se de ajustar o caminho conforme necessário
+import React, { useState } from "react";
+import Modal from "../modal/modal"; // Certifique-se de ajustar o caminho conforme necessário
 
 const Card = (props) => {
   const {
@@ -18,10 +18,11 @@ const Card = (props) => {
     location,
     openModal,
     promoterName,
-    promoterEmail// Adicione a propriedade openModal
+    promoterEmail, // Adicione a propriedade openModal
   } = props;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   const handleCardClick = () => {
     openModal(); // Chama a função passada por props para abrir o modal
     setIsModalOpen(true);
@@ -30,20 +31,19 @@ const Card = (props) => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
   return (
     <>
       <a className="card" onClick={handleCardClick}>
-        <img
-          src={imageName[1].src}
-          alt={title}
-          className="card-image"
-        />
+        <img src={imageName[1].src} alt={title} className="card-image" />
         <div className="card-info">
           <h4>{title}</h4>
           <p>{subtitle}</p>
-          <p>{startDate}-{endDate}</p>
+          <p>
+            {startDate}-{endDate}
+          </p>
           <p>Difficulty: {difficulty}</p>
-          <p className='price'>Price: {price}</p>
+          <p className="price">Price: {price}</p>
         </div>
       </a>
 
