@@ -62,18 +62,19 @@
 .cancel-button {
     padding: 10px 15px; /* Espaçamento interno do botão */
     font-size: 16px; /* Tamanho da fonte */
-    background-color: #022F07; /* Cor de fundo */
+    background-color: #C0DAD1; /* Cor de fundo */
     color: #ffffff; /* Cor do texto */
     border: none; /* Sem borda */
     border-radius: 5px; /* Bordas arredondadas */
     cursor: pointer;
-    
 
+}
+.cancel-button:hover{
+  background-color: #34db8d!important;
 }
 
 .cancel-button{
   background-color: #C0DAD1!important; /* Cor de fundo */
-  color: #022F07!important;
 }
 
 .contact-button{
@@ -137,7 +138,7 @@
 }
 
 .reservation-form button:hover {
-  background-color: #022F07;
+  background-color: #34db8d;
 }
 
 .reservation-form a {
