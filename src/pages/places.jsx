@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Card from "../components/Card/Card";
+import Card from "../components/card/Card";
 import { Header, Footer } from "@/components";
 import data from "../mockes/places";
 import Modal from "../components/modal/modal"; // Certifique-se de ajustar o caminho conforme necessário
