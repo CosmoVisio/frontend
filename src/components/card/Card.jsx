@@ -20,22 +20,19 @@ const Card = (props) => {
   } = props;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-console.log('description', description)
   const handleCardClick = () => {
     openModal(); // Chama a função passada por props para abrir o modal
     setIsModalOpen(true);
   };
 
   const closeModal = () => {
-    console.log('first', )
     setIsModalOpen(false);
   };
-console.log(imageName);
   return (
     <>
       <a className="card" onClick={handleCardClick}>
         <img
-          src={imageName[1]}
+          src={imageName[1].src}
           alt={title}
           className="card-image"
         />
