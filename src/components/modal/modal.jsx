@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import instaIcon from '../../assets/instagram-icon.png';
 import mapsIcon from '../../assets/maps-icon.jpg';
+import confirmationIcon from '../../assets/confirmation-message.jpg'
 import ButtonWithLoading from '../Button/ButtonWithLoading'
 const Modal = ({
   isOpen,
@@ -260,17 +261,33 @@ const Modal = ({
           </div>
         )}
 
-        {currentStep === 3 && (
-          <div>
-            {/* Step 3 content (confirmation or additional steps) */}
-            <p>Reserva confirmada! Ou adicione mais conteúdo para o próximo passo.</p>
-            {/* ... (additional content) */}
-          </div>
-        )}
-
-<div className="button-container mt-4">
-         
-         
+{currentStep === 3 && (
+  <div className='d-flex '>
+    <div className='confirmation-message'>
+      <p className='confirmation-text'>Reserva confirmada! Um resumo do seu pedido foi enviado para o seu email.</p>
+      <img
+        src={confirmationIcon.src}
+        alt="Reserva Confirmada"
+        className='confirmation-image'
+      />
+      <p className='confirmation-text'>Uma solicitação de compra foi encaminhada para o vendedor. Obrigado!</p>
+    </div>
+    <div className="package-summary">
+      <h3>Pedido Nº 1523656</h3>
+      <img src={imageName[0].src} alt={title} className="card-image" />
+      <div className="card-info">
+        <h4>{title}</h4>
+        <p>{subtitle}</p>
+        <p>
+          {startDate}-{endDate}
+        </p>
+        <p>Difficulty: {difficulty}</p>
+        <p className="price">Price: {price}</p>
+      </div>
+    </div>  
+  </div>
+)}
+<div className="button-container mt-4"> 
           {currentStep === 3 && (
             <button className={`contact-button ${loading ? 'progress' : ''}`} onClick={handleWhatsappClick}>
               {loading ? (

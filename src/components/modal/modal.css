@@ -197,6 +197,27 @@
 
 }
 
+.confirmation-message {
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+.confirmation-text {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.confirmation-image {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+
 /* .loading-bar {
   height: 4px;
   background-color: #4caf50;
