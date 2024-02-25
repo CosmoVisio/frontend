@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import instaIcon from '../../assets/instagram-icon.png';
 import mapsIcon from '../../assets/maps-icon.jpg';
-import confirmationIcon from '../../assets/confirmation-message.jpg'
+import confirmationIcon from '../../assets/confirmationIcon.png'
 import ButtonWithLoading from '../Button/ButtonWithLoading'
+import Logo from "../../assets/EcoPasseiosPElogo.png";
 const Modal = ({
   isOpen,
   closeModal,
@@ -18,6 +19,8 @@ const Modal = ({
   tag,
   description,
   whatsappNumber,
+  promoterName,
+  promoterEmail,
 }) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [showReservationForm, setShowReservationForm] = useState(false);
@@ -28,28 +31,27 @@ const Modal = ({
     authorizeSharing: false,
   });
 
-    const [emailError, setEmailError] = useState(false);
-    const [phoneError, setPhoneError] = useState(false);
-    const [nameError, setNameError] = useState(false);
-    const [authorizeSharingError, setAuthorizeSharingError] = useState(false);
-    const [loading, setLoading] = useState(false); // Loading state
-    const [loadingProgress, setLoadingProgress] = useState(0); // Loading progress
-    useEffect(() => {
-        const interval = setInterval(() => {
-          setLoadingProgress((prevProgress) => (prevProgress + 10) % 101);
-        }, 100);
-      
-        return () => clearInterval(interval);
-      }, [loading]);
+  const [emailError, setEmailError] = useState(false);
+  const [phoneError, setPhoneError] = useState(false);
+  const [nameError, setNameError] = useState(false);
+  const [authorizeSharingError, setAuthorizeSharingError] = useState(false);
+  const [loading, setLoading] = useState(false); // Loading state
+  const [loadingProgress, setLoadingProgress] = useState(0); // Loading progress
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLoadingProgress((prevProgress) => (prevProgress + 10) % 101);
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, [loading]);
 
 
   if (!isOpen) return null;
 
   const handleWhatsappClick = () => {
     const packageDetails = `Pacote: ${title}, Data: ${startDate}-${endDate}, Dificuldade: ${difficulty}, Preço: ${price}`;
-    const reservationDetails = `Reserva: Nome: ${formData.name}, Email: ${formData.email}, Telefone: ${formData.phone}, Autorização LGPD: ${
-      formData.authorizeSharing ? 'Sim' : 'Não'
-    }`;
+    const reservationDetails = `Reserva: Nome: ${formData.name}, Email: ${formData.email}, Telefone: ${formData.phone}, Autorização LGPD: ${formData.authorizeSharing ? 'Sim' : 'Não'
+      }`;
 
     const message = `Olá, tenho interesse no passeio! ${packageDetails}\n\n${reservationDetails}`;
 
@@ -82,23 +84,23 @@ const Modal = ({
 
     // Check if all form fields are valid
     if (isEmailValid && isPhoneValid && isNameValid && isAuthorizeSharingValid) {
-        // Simulate loading effect during form submission
-        setLoading(true);
-  
-        // Simulate form submission with setTimeout
-        setTimeout(() => {
-          // ... (existing code)
-  
-          // Reset loading state and move to the next step
-          setLoading(false);
-          setLoadingProgress(0); // Reset loading progress
-          setCurrentStep(3);
-        }, 2000); // Simulate a 2-second delay
-      }
+      // Simulate loading effect during form submission
+      setLoading(true);
+
+      // Simulate form submission with setTimeout
+      setTimeout(() => {
+        // ... (existing code)
+
+        // Reset loading state and move to the next step
+        setLoading(false);
+        setLoadingProgress(0); // Reset loading progress
+        setCurrentStep(3);
+      }, 2000); // Simulate a 2-second delay
+    }
   };
 
 
-  
+
 
   const handleInputChange = (field, value) => {
     // Remove error when user starts typing
@@ -139,11 +141,11 @@ const Modal = ({
           <div>
 
             <div className="image-container">
-            {imageName.map((item, index) => {
+              {imageName.map((item, index) => {
                 return (
-                    <img key={index} className="image" src={item.src} alt={title} />
+                  <img key={index} className="image" src={item.src} alt={title} />
                 );
-                })}
+              })}
             </div>
             <p>{YWF}</p>
             <div className="modal-info row">
@@ -223,9 +225,9 @@ const Modal = ({
                     type="checkbox"
                     checked={formData.authorizeSharing}
                     onChange={(e) => handleInputChange('authorizeSharing', e.target.checked)}
-                    className={authorizeSharingError ? 'error input-checkbox' : 'input-checkbox' }
+                    className={authorizeSharingError ? 'error input-checkbox' : 'input-checkbox'}
                   />
-                  
+
                   <label>
                     Autorizo o compartilhamento das minhas informações de contato com o guia.
                   </label>
@@ -234,12 +236,12 @@ const Modal = ({
                     <p className="error-message">Por favor, autorize o compartilhamento dos dados.</p>
                   )}
                 </div>
-                
+
                 <ButtonWithLoading progressText="Reservando..." completeText="Reservar!" type="button" onClick={handleFormSubmit} disabled={loading}>
-                 
+
                 </ButtonWithLoading>
                 <button className="cancel-button" onClick={handlePrevClick}>
-                    Cancelar reserva
+                  Cancelar reserva
                 </button>
               </form>
 
@@ -261,33 +263,50 @@ const Modal = ({
           </div>
         )}
 
-{currentStep === 3 && (
-  <div className='d-flex '>
-    <div className='confirmation-message'>
-      <p className='confirmation-text'>Reserva confirmada! Um resumo do seu pedido foi enviado para o seu email.</p>
-      <img
-        src={confirmationIcon.src}
-        alt="Reserva Confirmada"
-        className='confirmation-image'
-      />
-      <p className='confirmation-text'>Uma solicitação de compra foi encaminhada para o vendedor. Obrigado!</p>
-    </div>
-    <div className="package-summary">
-      <h3>Pedido Nº 1523656</h3>
-      <img src={imageName[0].src} alt={title} className="card-image" />
-      <div className="card-info">
-        <h4>{title}</h4>
-        <p>{subtitle}</p>
-        <p>
-          {startDate}-{endDate}
-        </p>
-        <p>Difficulty: {difficulty}</p>
-        <p className="price">Price: {price}</p>
-      </div>
-    </div>  
-  </div>
-)}
-<div className="button-container mt-4"> 
+        {currentStep === 3 && (
+          <div className='d-flex '>
+            <div className='confirmation-message'>
+              <img
+                  src={Logo.src}
+                  alt="Reserva Confirmada"
+                  className='confirmation-image-logo'
+                />
+              <p className='confirmation-text'>Reserva confirmada! Um resumo do seu pedido foi enviado para o seu email.</p>
+              <div className='images-container'>
+                <img
+                  src={confirmationIcon.src}
+                  alt="Reserva Confirmada"
+                  className='confirmation-image'
+                />
+                
+              </div>
+              <div className="card-info">
+                <h4>Organizador: {promoterName}</h4>
+                <p>Email do Organizador: {promoterEmail}</p>
+                <p>Contato: {whatsappNumber}</p>
+              </div>
+              <p className='confirmation-text'>Uma solicitação de compra foi encaminhada ao guia.</p>
+              <p className='confirmation-text'>O guia entrará em contato com você.</p>
+              <p className='confirmation-text'>Obrigado!</p>
+
+
+            </div>
+            <div className="package-summary">
+              <h3>Pedido Nº 1523656</h3>
+              <img src={imageName[0].src} alt={title} className="card-image" />
+              <div className="card-info">
+                <h4>{title}</h4>
+                <p>{subtitle}</p>
+                <p>
+                  {startDate}-{endDate}
+                </p>
+                <p>Difficulty: {difficulty}</p>
+                <p className="price">Price: {price}</p>
+              </div>
+            </div>
+          </div>
+        )}
+        <div className="button-container mt-4">
           {currentStep === 3 && (
             <button className={`contact-button ${loading ? 'progress' : ''}`} onClick={handleWhatsappClick}>
               {loading ? (

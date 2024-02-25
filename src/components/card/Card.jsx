@@ -16,7 +16,9 @@ const Card = (props) => {
     description,
     YWF,
     location,
-    openModal, // Adicione a propriedade openModal
+    openModal,
+    promoterName,
+    promoterEmail// Adicione a propriedade openModal
   } = props;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -60,6 +62,8 @@ const Card = (props) => {
         whatsappNumber={whatsappNumber}
         YWF={YWF}
         location={location}
+        promoterName={promoterName}
+        promoterEmail={promoterEmail}
       />
     </>
   );

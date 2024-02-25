@@ -62,15 +62,18 @@
 .cancel-button {
     padding: 10px 15px; /* Espaçamento interno do botão */
     font-size: 16px; /* Tamanho da fonte */
-    background-color: #3498db; /* Cor de fundo */
+    background-color: #022F07; /* Cor de fundo */
     color: #ffffff; /* Cor do texto */
     border: none; /* Sem borda */
     border-radius: 5px; /* Bordas arredondadas */
     cursor: pointer;
+    
+
 }
 
 .cancel-button{
-  background-color: #d61515!important; /* Cor de fundo */
+  background-color: #C0DAD1!important; /* Cor de fundo */
+  color: #022F07!important;
 }
 
 .contact-button{
@@ -79,13 +82,13 @@
 
 .reserve-button:hover,
 .contact-button:hover {
-    background-color: #2980b9; /* Cor de fundo ao passar o mouse */
+    background-color: #022F07; /* Cor de fundo ao passar o mouse */
 }
 
 .button-local{
 
     cursor: pointer;
-    color: #2980b9;
+    color: #022F07;
 }
 
 /* Add this to your stylesheet */
@@ -94,6 +97,7 @@
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
 }
 
 .reservation-form h3 {
@@ -126,18 +130,18 @@
 }
 
 .reservation-form button {
-  background-color: #007bff;
+  background-color: #022F07;
   color: #fff;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .reservation-form button:hover {
-  background-color: #0056b3;
+  background-color: #022F07;
 }
 
 .reservation-form a {
-  color: #007bff;
+  color: #022F07;
   text-decoration: none;
 }
 
@@ -166,6 +170,7 @@
 
 .card-info {
   text-align: center;
+  margin-bottom: 15px;
 }
 
 .card-info h4 {
@@ -179,7 +184,7 @@
 
 .price {
   font-weight: bold;
-  color: #007bff; /* Change the color to your preference */
+  color: #022F07; /* Change the color to your preference */
 }
 
 .error {
@@ -202,19 +207,30 @@
   background-color: #f0f0f0;
   border-radius: 8px;
   margin-right: 20px;
+  margin-top: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .confirmation-text {
   font-size: 16px;
   margin-bottom: 10px;
+  text-align: center;
+}
+
+.images-container {
+  display: flex;
 }
 
 .confirmation-image {
-  width: 300px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 10px;
+  width: 90px;
+  /* max-width: 100%; */
+  height: auto;
+
 }
 
 

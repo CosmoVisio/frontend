@@ -27,7 +27,7 @@ const ButtonWithLoading = ({ progressText, completeText, onClick, disabled }) =>
 
   return (
     <button className="button" onClick={handleButtonClick} disabled={loading || disabled}>
-      <div className="button__progress" style={{ width: `${progress}%`, backgroundColor: '#00FF90' }}></div>
+      <div className="button__progress" style={{ width: `${progress}%`, backgroundColor: '#022F07' }}></div>
       <span className="button__text">{loading ? progressText : completeText}</span>
     </button>
   );

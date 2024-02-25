@@ -34,9 +34,11 @@ const App = () => {
           openModal={() => openModal(item)} 
           tag={item.tag}
           description={item.description}
-          whatsappNumber={item.whatsappNumber}
+          whatsappNumber={item.promoterPhone}
           YWF={item.YWF}
           location={item.location}
+          promoterName={item.promoterName}
+          promoterEmail={item.promoterEmail}
         />
       ))}
     </div>
