@@ -1,6 +1,6 @@
 @import "./Button/ButtonPrimary.css";
-@import "./Header/Header.css";
-@import "./Footer/Footer.css";
+@import "./header/header.css";
+@import "./footer/footer.css";
 @import "./card/card.css";
 @import "./modal/modal.css";
-@import "./Button/ButtonWithLoading.css"
+@import "./Button/ButtonWithLoading.css";

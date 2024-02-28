@@ -1,0 +1,30 @@
+.home:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+  background: url(/background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.link-destinos {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: white;
+  background-color: #022f07;
+  max-width: fit-content;
+  padding: 12px;
+  border-radius: 9999px;
+}
+
+.link-destinos:hover {
+  background-color: #03510c;
+}

@@ -119,7 +119,7 @@ export default function Register() {
         <div className="d-flex vw-100 vh-100">
           <div className="w-25">
             <img
-              src="/f3d35c1c67d426c4a63e4dcabde7c2c3.png"
+              src="/background.png"
               width={"100%"}
               height={"100%"}
               style={{ objectFit: "cover", opacity: ".5" }}

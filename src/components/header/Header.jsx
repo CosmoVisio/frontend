@@ -12,7 +12,7 @@ const Header = () => {
   };
 
   return (
-    <div className="header-container container bg-white d-flex pt-2">
+    <div className="header-container bg-white d-flex pt-2 shadow-sm">
       <Link href="/">
         <Navbar.Brand className="d-none d-lg-flex pt-2">
           <img src={Logo.src} alt="Seu Logo" height="80" />
@@ -35,10 +35,7 @@ const Header = () => {
               Destinos
             </Nav.Link>
 
-            <Nav.Link
-              className="text-decoration-none text-uppercase"
-              href="/services"
-            >
+            <Nav.Link className="text-decoration-none text-uppercase" href="/">
               Pacotes
             </Nav.Link>
 
@@ -52,7 +49,7 @@ const Header = () => {
         </Navbar>
       </div>
 
-      <div>
+      <div className="me-5">
         <Nav className="ml-auto">
           <BottonPrimary
             variant="outline-primary"
