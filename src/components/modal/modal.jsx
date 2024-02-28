@@ -137,6 +137,11 @@ const Modal = ({
   };
 
   const handlePrevClick = () => {
+    setEmailError(false);
+    setPhoneError(false);
+    setNameError(false);
+    setAuthorizeSharingError(false);
+
     setCurrentStep((prevStep) => prevStep - 1);
   };
 
@@ -146,11 +151,14 @@ const Modal = ({
         className="modal-content shadow w-75"
         onClick={(e) => e.stopPropagation()}
       >
+        <button
+          className="mb-3 btn btn-outline-success align-self-end"
+          onClick={closeModal}
+        >
+          ✕
+        </button>
         {currentStep === 1 && (
           <div className="d-flex flex-column">
-            <button className="my-3 align-self-end" onClick={closeModal}>
-              Fechar
-            </button>
             <div className="image-container">
               {imageName.map((item, index) => {
                 return (
@@ -163,30 +171,43 @@ const Modal = ({
                 );
               })}
             </div>
-            <p>{YWF}</p>
+
+            <p className="mt-3">{YWF}</p>
+
             <div className="modal-info row">
               <div className="col-md-6">
-                <h2 className="mb-0">{title}</h2>
-                <div className="button-local mb-2">
-                  <img
-                    src={mapsIcon.src}
-                    alt="Maps Icon"
-                    style={{ width: "20px", height: "20px" }}
-                  />
-                  <a onClick={handleLocationClick}>Localização</a>
+                <div className="mb-2 d-flex align-items-center">
+                  <h2 className="me-3">{title}</h2>
+
+                  <span className="d-flex align-items-center button-local">
+                    <img
+                      src={mapsIcon.src}
+                      alt="Maps Icon"
+                      style={{ width: "20px", height: "20px" }}
+                    />
+                    <a onClick={handleLocationClick}>Localização</a>
+                  </span>
                 </div>
-                <p>Descrição do passeio: {description}</p>
+
+                <p>{description}</p>
               </div>
 
               <div className="col-md-6">
-                <div className="">
-                  <p>{subtitle}</p>
-                  <p>
-                    {startDate} - {endDate}
-                  </p>
-                  <p>Dificuldade: {difficulty}</p>
-                  <p className="price">Price: {price}</p>
-                  <div>
+                <div className="d-flex flex-column">
+                  <span className="mb-2">
+                    <strong className="fs-5">{subtitle}</strong>, {startDate} -{" "}
+                    {endDate}
+                  </span>
+
+                  <span>
+                    <strong>Dificuldade:</strong> {difficulty}
+                  </span>
+
+                  <span>
+                    <strong>Preço:</strong> {price}
+                  </span>
+
+                  <div className="d-flex align-items-center mt-3">
                     <img
                       src={instaIcon.src}
                       alt="Instagram Icon"
@@ -204,15 +225,16 @@ const Modal = ({
                     </a>
                   </div>
                 </div>
+
                 <div className="button-container mt-4">
                   <button
-                    className="reserve-button"
+                    className="btn btn-success"
                     onClick={handleReserveClick}
                   >
                     Reservar
                   </button>
                   <button
-                    className="contact-button"
+                    className="btn btn-success"
                     onClick={handleWhatsappClick}
                   >
                     Falar no WhatsApp
@@ -265,24 +287,26 @@ const Modal = ({
                   </p>
                 )}
 
-                <div className="d-flex">
-                  <input
-                    type="checkbox"
-                    checked={formData.authorizeSharing}
-                    onChange={(e) =>
-                      handleInputChange("authorizeSharing", e.target.checked)
-                    }
-                    className={
-                      authorizeSharingError
-                        ? "error input-checkbox"
-                        : "input-checkbox"
-                    }
-                  />
+                <div className="mt-2 mb-4">
+                  <div className="d-flex align-items-center">
+                    <input
+                      type="checkbox"
+                      checked={formData.authorizeSharing}
+                      onChange={(e) =>
+                        handleInputChange("authorizeSharing", e.target.checked)
+                      }
+                      className={
+                        authorizeSharingError
+                          ? "error input-checkbox"
+                          : "input-checkbox"
+                      }
+                    />
 
-                  <label>
-                    Autorizo o compartilhamento das minhas informações de
-                    contato com o guia.
-                  </label>
+                    <label style={{ fontSize: "13px" }}>
+                      Autorizo o compartilhamento das minhas informações de
+                      contato com o guia.
+                    </label>
+                  </div>
 
                   {authorizeSharingError && (
                     <p className="error-message">
@@ -290,31 +314,49 @@ const Modal = ({
                     </p>
                   )}
                 </div>
+              </form>
 
+              <div className="d-flex flex-column align-self-end">
                 <ButtonWithLoading
                   progressText="Reservando..."
-                  completeText="Reservar!"
+                  completeText="Reservar"
                   type="button"
                   onClick={handleFormSubmit}
                   disabled={loading}
-                ></ButtonWithLoading>
-                <button className="cancel-button" onClick={handlePrevClick}>
-                  Cancelar reserva
-                </button>
-              </form>
+                />
 
-              <p></p>
+                <button
+                  className="btn btn-secondary mt-3"
+                  onClick={handlePrevClick}
+                >
+                  Cancelar
+                </button>
+              </div>
             </div>
+
             <div className="package-summary">
-              <img src={imageName[0].src} alt={title} className="card-image" />
+              <img
+                src={imageName[0].src}
+                alt={title}
+                className="card-image shadow my-4"
+              />
+
               <div className="card-info">
-                <h4>{title}</h4>
-                <p>{subtitle}</p>
+                <span className="d-flex">
+                  <h4>{title}</h4>, {subtitle}
+                </span>
                 <p>
-                  {startDate}-{endDate}
+                  {startDate} - {endDate}
                 </p>
-                <p>Difficulty: {difficulty}</p>
-                <p className="price">Price: {price}</p>
+
+                <span className="d-flex flex-column mt-2">
+                  <span>
+                    <strong>Dificuldade:</strong> {difficulty}
+                  </span>
+                  <span>
+                    <strong>Preço:</strong> {price}
+                  </span>
+                </span>
               </div>
             </div>
           </div>
@@ -353,21 +395,33 @@ const Modal = ({
               <p className="confirmation-text">Obrigado!</p>
             </div>
             <div className="package-summary">
-              <h3>Pedido Nº 1523656</h3>
-              <img src={imageName[0].src} alt={title} className="card-image" />
+              <h3 className="my-4">Pedido Nº 1523656</h3>
+              <img
+                src={imageName[0].src}
+                alt={title}
+                className="card-image shadow my-4"
+              />
               <div className="card-info">
-                <h4>{title}</h4>
-                <p>{subtitle}</p>
+                <span className="d-flex">
+                  <h4>{title}</h4>, {subtitle}
+                </span>
                 <p>
-                  {startDate}-{endDate}
+                  {startDate} - {endDate}
                 </p>
-                <p>Difficulty: {difficulty}</p>
-                <p className="price">Price: {price}</p>
+
+                <span className="d-flex flex-column mt-2">
+                  <span>
+                    <strong>Dificuldade:</strong> {difficulty}
+                  </span>
+                  <span>
+                    <strong>Preço:</strong> {price}
+                  </span>
+                </span>
               </div>
             </div>
           </div>
         )}
-        <div className="button-container mt-4">
+        <div className="button-container mt-4 align-self-center">
           {currentStep === 3 && (
             <button
               className={`contact-button ${loading ? "progress" : ""}`}

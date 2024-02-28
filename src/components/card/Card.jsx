@@ -36,14 +36,19 @@ const Card = (props) => {
     <>
       <a className="card" onClick={handleCardClick}>
         <img src={imageName[1].src} alt={title} className="card-image" />
+
         <div className="card-info">
           <h4>{title}</h4>
           <p>{subtitle}</p>
           <p>
-            {startDate}-{endDate}
+            {startDate} - {endDate}
           </p>
-          <p>Difficulty: {difficulty}</p>
-          <p className="price">Price: {price}</p>
+          <span>
+            <strong>Dificuldade:</strong> {difficulty}
+          </span>
+          <span>
+            <strong>Preço:</strong> {price}
+          </span>
         </div>
       </a>
 

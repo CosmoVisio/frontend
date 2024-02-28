@@ -35,10 +35,7 @@ const Header = () => {
               Destinos
             </Nav.Link>
 
-            <Nav.Link
-              className="text-decoration-none text-uppercase"
-              href="/services"
-            >
+            <Nav.Link className="text-decoration-none text-uppercase" href="/">
               Pacotes
             </Nav.Link>
 
